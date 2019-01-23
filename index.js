@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const settings = {
       prefix: "$",
-      modlog: ""
+      modlog: "537265977931464705"
 };
 
 client.on('error', console.error)
