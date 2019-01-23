@@ -38,7 +38,7 @@ client.on('error', console.error)
                   if (message.mentions.users.size < 1) return message.reply("**`You must mention someone to warn them.`**").catch(console.error);
                   if (user.highestRole.position >= message.member.highestRole.position) return message.channel.send("! لا تستطيع اعطاء ميوت لاحد اعلي منك رتبة");
 			if (args.includes("http://") || args.includes("https://")) {
-				var pic = args.[0];
+				var pic = args[0];
 				var reason = args.slice(1).join(" ");
 			} else {
 				var reason = args.join(" ");
@@ -81,7 +81,7 @@ client.on('error', console.error)
                   if (message.mentions.users.size < 1) return message.reply("**`You must mention someone to warn them.`**").catch(console.error);
                   if (user.highestRole.position >= message.member.highestRole.position) return message.channel.send("! لا تستطيع اعطاء بان لاحد اعلي منك رتبة");
 			if (args.includes("http://") || args.includes("https://")) {
-				var pic = args.[0];
+				var pic = args[0];
 				var reason = args.slice(1).join(" ");
 			} else {
 				var reason = args.join(" ");
