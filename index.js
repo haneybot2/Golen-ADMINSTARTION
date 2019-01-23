@@ -85,7 +85,6 @@ client.on('error', console.error)
 			} else {
 				var reason = args.join(" ");
 			}
-                  const reason = args.join(" ");
                   if (!reason) return message.reply("**`Please place a reason`**").catch(console.error);
 
                   const embed = new RichEmbed()
