@@ -20,7 +20,7 @@ client.on('error', console.error)
                   const modlog = client.channels.get(settings.modlog);
                   if (!modlog) return message.reply("**`I cannot find a mod-log channel!`**");
                   if (message.mentions.users.size < 1) return message.reply("**`You must mention someone to warn them.`**").catch(console.error);
-                  const reason = args.join(" ");
+                  const reason = args.slice(1).join(" ");
                   if (!reason) return message.reply("**`Please place a reason`**").catch(console.error);
 
                   const embed = new Discord.RichEmbed()
@@ -38,9 +38,9 @@ client.on('error', console.error)
                   if (message.mentions.users.size < 1) return message.reply("**`You must mention someone to warn them.`**").catch(console.error);
 			if (args.includes("http://") || args.includes("https://")) {
 				var pic = args[0];
-				var reason = args.slice(1).join(" ");
+				var reason = args.slice(2).join(" ");
 			} else {
-				var reason = args.join(" ");
+				var reason = args.slice(1).join(" ");
 			}
                   if (!reason) return message.reply("**`Please place a reason`**").catch(console.error);
                   const role = message.guild.roles.find(r => r.name === "Muted");
@@ -80,9 +80,9 @@ client.on('error', console.error)
                   if (message.mentions.users.size < 1) return message.reply("**`You must mention someone to warn them.`**").catch(console.error);
 			if (args.includes("http://") || args.includes("https://")) {
 				var pic = args[0];
-				var reason = args.slice(1).join(" ");
+				var reason = args.slice(2).join(" ");
 			} else {
-				var reason = args.join(" ");
+				var reason = args.slice(1).join(" ");
 			}
                   if (!reason) return message.reply("**`Please place a reason`**").catch(console.error);
 
@@ -101,7 +101,7 @@ client.on('error', console.error)
                   const modlog = client.channels.get(settings.modlog);
                   if (!modlog) return message.reply("**`I cannot find a mod-log channel!`**");
                   if (message.mentions.users.size < 1) return message.reply("**`You must mention someone to warn them.`**").catch(console.error);
-                  const reason = args.join(" ");
+                  const reason = args.slice(1).join(" ");
                   if (!reason) return message.reply("**`Please place a reason`**").catch(console.error);
 
                   const embed = new RichEmbed()
