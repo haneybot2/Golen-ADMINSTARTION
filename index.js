@@ -61,7 +61,7 @@ client.on('error', console.error)
                               console.log(e.stack);
                         }
                   }
-                  if (user.roles.has(role.id)) return message.channel.send("❌ **this user is already muted**!");
+                  if (user.user.roles.has(role.id)) return message.channel.send("❌ **this user is already muted**!");
 
                   let embed = new RichEmbed()
                         .setColor(0x00AE86)
