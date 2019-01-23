@@ -4,7 +4,6 @@ const settings = {
       prefix: "$",
       modlog: ""
 };
-const warns = {};
 
 client.on('error', console.error)
       .on('warn', console.warn)
