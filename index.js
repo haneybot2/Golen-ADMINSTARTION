@@ -40,8 +40,10 @@ client.on('error', console.error)
 			if (args.includes("http://") || args.includes("https://")) {
 				var pic = args[1];
 				var reason = args.slice(2).join(" ");
+				console.log("hi pic");
 			} else {
 				var reason = args.slice(1).join(" ");
+				console.log("hi no pic");
 			}
                   if (!reason) return message.reply("**`Please place a reason`**").catch(console.error);
                   let role = message.guild.roles.find(r => r.name === "Muted");
