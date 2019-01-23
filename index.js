@@ -35,7 +35,6 @@ client.on('error', console.error)
                   const modlog = client.channels.get(settings.modlog);
                   if (!modlog) return message.reply("**`I cannot find a mod-log channel!`**");
                   if (message.mentions.users.size < 1) return message.reply("**`You must mention someone to warn them.`**").catch(console.error);
-                  if (user.highestRole.position >= message.member.highestRole.position) return message.channel.send("! لا تستطيع اعطاء ميوت لاحد اعلي منك رتبة");
 			if (args.includes("http://") || args.includes("https://")) {
 				var pic = args[0];
 				var reason = args.slice(1).join(" ");
@@ -78,7 +77,6 @@ client.on('error', console.error)
                   const modlog = client.channels.get(settings.modlog);
                   if (!modlog) return message.reply("**`I cannot find a mod-log channel!`**");
                   if (message.mentions.users.size < 1) return message.reply("**`You must mention someone to warn them.`**").catch(console.error);
-                  if (user.highestRole.position >= message.member.highestRole.position) return message.channel.send("! لا تستطيع اعطاء بان لاحد اعلي منك رتبة");
 			if (args.includes("http://") || args.includes("https://")) {
 				var pic = args[0];
 				var reason = args.slice(1).join(" ");
@@ -101,7 +99,6 @@ client.on('error', console.error)
                   const modlog = client.channels.get(settings.modlog);
                   if (!modlog) return message.reply("**`I cannot find a mod-log channel!`**");
                   if (message.mentions.users.size < 1) return message.reply("**`You must mention someone to warn them.`**").catch(console.error);
-                  if (user.highestRole.position >= message.member.highestRole.position) return message.channel.send("! لا تستطيع اعطاء كيك لاحد اعلي منك رتبة");
                   const reason = args.join(" ");
                   if (!reason) return message.reply("**`Please place a reason`**").catch(console.error);
 
