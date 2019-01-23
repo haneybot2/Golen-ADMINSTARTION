@@ -1,0 +1,26 @@
+{
+	"name": "dt",
+	"version": "12.0.0-dev",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "npm run lint && npm run docs:test && npm run lint:typings",
+		"start": "node index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/haneeesameee/OK-Discored.js-Bot.git"
+	},
+	"author": "RedDead",
+	"license": "MIT",
+	"dependencies": {
+		"path": ">=0.12.7",
+		"discord.js": "^11.4.2",
+		"fs": ">=0.0.1-security",
+		"ms": ">=2.1.1",
+		"moment": ">=2.23.0"
+	},
+	"engines": {
+		"node": ">=8.0.0"
+	}
+}
