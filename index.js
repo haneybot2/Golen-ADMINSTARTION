@@ -28,7 +28,8 @@ client.on('error', console.error)
                         .setTimestamp()
                         .setDescription(`**Action:** Warning\n**Target:** ${user.tag}\n**Moderator:** ${message.author.tag}\n**Reason:** \`\`\`${reason}\`\`\``)
                         .setFooter(`By ${message.author.tag}`, message.author.displayAvatarURL);
-                  return client.channels.get(modlog.id).send({ embed });
+		    client.channels.get(modlog.id).send({ embed });
+                  return message.channel.send(`:white_check_mark: **${user.username} Warned**`);
             } else if (command === "mute") {
                   if (!args) return menubar.reply(`**\`Usage: ${settings.prefix}mute [user] [pictureURL] [reason]\`**`);
                   const user = message.mentions.users.first();
@@ -91,6 +92,7 @@ client.on('error', console.error)
                         .setDescription(`**Action:** Ban\n**Target:** ${user.tag}\n**Moderator:** ${message.author.tag}\n**Reason:** ${reason}`)
                         .setFooter(`By ${message.author.tag}`, message.author.displayAvatarURL);
                   message.guild.member(user).ban(reason).then(() => {
+			message.channel.send(`:white_check_mark: **${user.username} Baned**`);
                         client.channels.get(modlog.id).send({ embed });
                   });
             } else if (command === "kick") {
@@ -108,6 +110,7 @@ client.on('error', console.error)
                         .setDescription(`**Action:** Kick\n**Target:** ${user.tag}\n**Moderator:** ${message.author.tag}\n**Reason:** ${reason}`)
                         .setFooter(`By ${message.author.tag}`, message.author.displayAvatarURL);
                   message.guild.member(user).ban(reason).then(() => {
+			message.channel.send(`:white_check_mark: **${user.username} Kiecked**`);
                         client.channels.get(modlog.id).send({ embed });
                   });
             } else if (command === "unban") {
@@ -122,6 +125,7 @@ client.on('error', console.error)
                         .setDescription(`**Action:** Unban\n**Target:** ${user.tag}\n**Moderator:** ${message.author.tag}\n**Reason:** ${reason}`)
                         .setFooter(`By ${message.author.tag}`, message.author.displayAvatarURL);
                   message.guild.unban(user).then(() => {
+			  return message.channel.send(`:white_check_mark: **${user.username} Unbaned**`);
                         client.channels.get(modlog.id).send({ embed });
                   });
             }
