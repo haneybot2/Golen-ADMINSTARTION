@@ -8,7 +8,7 @@ const settings = {
 client.on('error', console.error)
       .on('warn', console.warn)
       .once('ready', () => console.log("I am ready!"))
-      .on("message", message => {
+      .on("message", async message => {
             if (message.author.bot) return;
             if (!message.content.startsWith(settings.prefix)) return;
             const command = message.content.split(' ')[0].slice(settings.prefix.length);
