@@ -11,8 +11,9 @@ client.on('error', console.error)
       .on("message", async message => {
             if (message.author.bot) return;
             if (!message.content.startsWith(settings.prefix)) return;
-            const command = message.content.split(' ')[0].slice(settings.prefix.length);
-            const args = message.content.split(' ').slice(1);
+            const args = message.content.slice(settings.prefix.length).split(/ +/);
+		const command = args.shift().toLowerCase();
+            
 
             if (command === "warn") {
                   if (!args) return message.reply(`**\`Usage: ${settings.prefix}warn [user] [reason]\`**`);
@@ -37,7 +38,7 @@ client.on('error', console.error)
                   if (!modlog) return message.reply("**`I cannot find a mod-log channel!`**");
                   if (message.mentions.users.size < 1) return message.reply("**`You must mention someone to warn them.`**").catch(console.error);
 			if (args.includes("http://") || args.includes("https://")) {
-				var pic = args[0];
+				var pic = args[1];
 				var reason = args.slice(2).join(" ");
 			} else {
 				var reason = args.slice(1).join(" ");
@@ -65,7 +66,7 @@ client.on('error', console.error)
                   let embed = new Discord.RichEmbed()
                         .setColor(0x00AE86)
                         .setTimestamp()
-                        .setDescription(`**Action:** Mute\n**Target:** ${user.tag}\n**Moderator:** ${message.author.tag}\n**Reason:** ${reason}`)
+                        .setDescription(`**Action:** Mute\n**Target:** ${user.tag}\n**Moderator:** ${message.author.tag}\n**Reason:** \`\`\`${reason}\`\`\``)
                         .setFooter(`By ${message.author.tag}`, message.author.displayAvatarURL);
 		    if (pic) {
 		    	embed.setImage(pic);
@@ -81,7 +82,7 @@ client.on('error', console.error)
                   if (!modlog) return message.reply("**`I cannot find a mod-log channel!`**");
                   if (message.mentions.users.size < 1) return message.reply("**`You must mention someone to warn them.`**").catch(console.error);
 			if (args.includes("http://") || args.includes("https://")) {
-				var pic = args[0];
+				var pic = args[1];
 				var reason = args.slice(2).join(" ");
 			} else {
 				var reason = args.slice(1).join(" ");
@@ -91,7 +92,7 @@ client.on('error', console.error)
                   let embed = new Discord.RichEmbed()
                         .setColor(0x00AE86)
                         .setTimestamp()
-                        .setDescription(`**Action:** Ban\n**Target:** ${user.tag}\n**Moderator:** ${message.author.tag}\n**Reason:** ${reason}`)
+                        .setDescription(`**Action:** Ban\n**Target:** ${user.tag}\n**Moderator:** ${message.author.tag}\n**Reason:** \`\`\`${reason}\`\`\``)
                         .setFooter(`By ${message.author.tag}`, message.author.displayAvatarURL);
 		    if (pic) {
 		    	embed.setImage(pic);
@@ -112,7 +113,7 @@ client.on('error', console.error)
                   const embed = new Discord.RichEmbed()
                         .setColor(0x00AE86)
                         .setTimestamp()
-                        .setDescription(`**Action:** Kick\n**Target:** ${user.tag}\n**Moderator:** ${message.author.tag}\n**Reason:** ${reason}`)
+                        .setDescription(`**Action:** Kick\n**Target:** ${user.tag}\n**Moderator:** ${message.author.tag}\n**Reason:** \`\`\`${reason}\`\`\``)
                         .setFooter(`By ${message.author.tag}`, message.author.displayAvatarURL);
                   message.guild.member(user).ban(reason).then(() => {
 			message.channel.send(`:white_check_mark: **${user.username} Kiecked**`);
@@ -127,7 +128,7 @@ client.on('error', console.error)
                   const embed = new Discord.RichEmbed()
                         .setColor(0x00AE86)
                         .setTimestamp()
-                        .setDescription(`**Action:** Unban\n**Target:** ${user.tag}\n**Moderator:** ${message.author.tag}\n**Reason:** ${reason}`)
+                        .setDescription(`**Action:** Unban\n**Target:** ${user.tag}\n**Moderator:** ${message.author.tag}\n**Reason:** \`\`\`${reason}\`\`\``)
                         .setFooter(`By ${message.author.tag}`, message.author.displayAvatarURL);
                   message.guild.unban(user).then(() => {
 			  return message.channel.send(`:white_check_mark: **${user.username} Unbaned**`);
