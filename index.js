@@ -63,17 +63,20 @@ client.on('error', console.error)
                   }
                   if (user.roles.has(role.id)) return message.channel.send("❌ **this user is already muted**!");
 
-                  const embed = new RichEmbed()
+                  let embed = new RichEmbed()
                         .setColor(0x00AE86)
                         .setTimestamp()
                         .setDescription(`**Action:** Mute\n**Target:** ${user.tag}\n**Moderator:** ${message.author.tag}\n**Reason:** ${reason}`)
                         .setFooter(`By ${message.author.tag}`, message.author.displayAvatarURL);
+		    if (pic) {
+		    	embed.setImage(pic);
+		    }
                   message.guild.member(user).addRole(role).then(() => {
                         message.channel.send(`**${user.username} Muted** 🤐`);
                         client.channels.get(modlog.id).send({ embed }).catch(console.error);
                   });
             } else if (command === "ban") {
-                  if (!args) return menubar.reply(`**\`Usage: ${settings.prefix}ban [user] [reason]\`**`);
+                  if (!args) return menubar.reply(`**\`Usage: ${settings.prefix}ban [user] [pictureURL] [reason]\`**`);
                   const user = message.mentions.users.first();
                   const modlog = client.channels.get(settings.modlog);
                   if (!modlog) return message.reply("**`I cannot find a mod-log channel!`**");
@@ -86,11 +89,14 @@ client.on('error', console.error)
 			}
                   if (!reason) return message.reply("**`Please place a reason`**").catch(console.error);
 
-                  const embed = new RichEmbed()
+                  let embed = new RichEmbed()
                         .setColor(0x00AE86)
                         .setTimestamp()
                         .setDescription(`**Action:** Ban\n**Target:** ${user.tag}\n**Moderator:** ${message.author.tag}\n**Reason:** ${reason}`)
                         .setFooter(`By ${message.author.tag}`, message.author.displayAvatarURL);
+		    if (pic) {
+		    	embed.setImage(pic);
+		    }
                   message.guild.member(user).ban(reason).then(() => {
 			message.channel.send(`:white_check_mark: **${user.username} Baned**`);
                         client.channels.get(modlog.id).send({ embed });
