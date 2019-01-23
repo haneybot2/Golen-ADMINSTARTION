@@ -62,7 +62,7 @@ client.on('error', console.error)
                         }
                   }
 
-                  let embed = new RichEmbed()
+                  let embed = new Discord.RichEmbed()
                         .setColor(0x00AE86)
                         .setTimestamp()
                         .setDescription(`**Action:** Mute\n**Target:** ${user.tag}\n**Moderator:** ${message.author.tag}\n**Reason:** ${reason}`)
@@ -88,7 +88,7 @@ client.on('error', console.error)
 			}
                   if (!reason) return message.reply("**`Please place a reason`**").catch(console.error);
 
-                  let embed = new RichEmbed()
+                  let embed = new Discord.RichEmbed()
                         .setColor(0x00AE86)
                         .setTimestamp()
                         .setDescription(`**Action:** Ban\n**Target:** ${user.tag}\n**Moderator:** ${message.author.tag}\n**Reason:** ${reason}`)
@@ -109,7 +109,7 @@ client.on('error', console.error)
                   const reason = args.slice(1).join(" ");
                   if (!reason) return message.reply("**`Please place a reason`**").catch(console.error);
 
-                  const embed = new RichEmbed()
+                  const embed = new Discord.RichEmbed()
                         .setColor(0x00AE86)
                         .setTimestamp()
                         .setDescription(`**Action:** Kick\n**Target:** ${user.tag}\n**Moderator:** ${message.author.tag}\n**Reason:** ${reason}`)
@@ -124,7 +124,7 @@ client.on('error', console.error)
                   if (!modlog) return message.reply("**`I cannot find a mod-log channel!`**");
                   if (!reason) return message.reply("**`Please place a reason`**").catch(console.error);
                   if (!user) return message.reply("**`You must supply a User Resolvable, such as a user id.`**").catch(console.error);
-                  const embed = new RichEmbed()
+                  const embed = new Discord.RichEmbed()
                         .setColor(0x00AE86)
                         .setTimestamp()
                         .setDescription(`**Action:** Unban\n**Target:** ${user.tag}\n**Moderator:** ${message.author.tag}\n**Reason:** ${reason}`)
