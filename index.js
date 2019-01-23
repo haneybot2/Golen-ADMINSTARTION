@@ -43,7 +43,7 @@ client.on('error', console.error)
 				var reason = args.slice(1).join(" ");
 			}
                   if (!reason) return message.reply("**`Please place a reason`**").catch(console.error);
-                  const role = message.guild.roles.find(r => r.name === "Muted");
+                  let role = message.guild.roles.find(r => r.name === "Muted");
                   if (!role) {
                         try {
                               role = await message.guild.createRole({
