@@ -220,9 +220,6 @@ module.exports.play = (client, guild, song) => {
 		})
 		.on("error", error => {
 			console.error(error);
-			client.queue.delete(message.guild.id);
-			client.users.get(client.config.owner).send(`⚠ **Error \`playing function\`:**\n\`\`\`js\n${err.stack}\`\`\``);
-			return message.channel.send("⚠ **Error**, `The error state has been sent to the programmer`!");
 		});
 	dispatcher.setVolume(Math.round(Number(serverQueue.volume)) / 200);
 	if (client.nowPlaying) {
