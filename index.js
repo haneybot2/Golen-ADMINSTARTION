@@ -9,7 +9,6 @@ process.on("unhandledRejection", error => console.error(`Uncaught Promise Error:
 const { Client, Collection } = require("discord.js");
 const { readdir } = require("fs");
 const YouTube = require("simple-youtube-api");
-const SQLite = require("better-sqlite3");
 //set.client
 const client = new Client({
 	disableEveryone: true,
@@ -29,7 +28,6 @@ const client = new Client({
 });
 //set.object
 client.config = require("./config.js");
-client.sql = new SQLite("./sqlite/scores.sqlite");
 client.commands = new Collection();
 client.aliases = new Collection();
 client.music = new Collection();
