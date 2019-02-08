@@ -1,5 +1,5 @@
 module.exports.run = async (client, message, args, serverQueue, ops) => {
-	if (ops.fun.checkPermission(client, message, "MANAGE_MESSAGES") === false) return;
+	if (!message.member.hasPermission("MANAGE_MESSAGES")) return;
 	if (!message.member.voiceChannel) return message.channel.send("❌ **`You are not in a voice channel`**!");
 	if (!serverQueue) return message.channel.send("❌ **`There is nothing playing to skip to.`**");
 	if (!args[1]) {
