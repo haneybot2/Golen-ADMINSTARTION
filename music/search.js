@@ -1,7 +1,7 @@
 const ytdl = module.require("ytdl-core");
 
 module.exports.run = async (client, message, args, serverQueue, ops) => {
-      if (ops.fun.checkPermission(client, message, "MANAGE_MESSAGES") === false) return;
+      if (!message.member.hasPermission("MANAGE_MESSAGES")) return;
       const voiceChannel = message.member.voiceChannel;
       if (!message.member.voiceChannel) return message.channel.send("❌ **`You need to be in a voice channel to play Music!`**");
       if (message.guild.me.voiceChannel && voiceChannel.id !== message.guild.me.voiceChannel.id) return message.channel.send("❌ **`I am already in an voice channel!`**");
